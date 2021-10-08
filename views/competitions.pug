@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  a.button(href='/') Cadastrar Competição
+  h3 Competições cadastradas:
+  br 
+  for comp in competitions
+      span Modalidade:       
+      span= comp.sportType
+      br
+      span 
+      b= comp.nation1
+      span  x  
+      b= comp.nation2
+      span   
+      span= comp.p2
+      br
+      span Data/Hora início: 
+      span= comp.dateTimeStarts
+      br
+      span Data/Hora término: 
+      span= comp.dateTimeFinish
+      br     
+      span Local: 
+      b= comp.eventPlace
+      br
+      span Etapa: 
+      b= comp.stageType     
+      br
+      br

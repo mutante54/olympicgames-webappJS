@@ -1,0 +1,62 @@
+extends layout
+
+block content
+  a.button(href='/competitions') Competições cadastradas
+  h3 Nova Competição:
+  form(action='/submit', method='post')
+    label Modalidade:     
+    select(name='sportType', id='sportType')
+      each val in ['SOCCER', 'BASKETBALL', 'VOLLEYBALL', 'JUDO', 'SWIMMING']
+        option=val
+    br
+    label Local do evento:     
+    input(type='text', name='eventPlace', size=50)
+    br
+    br
+    label Competidores:
+    br
+    label Nação 1:
+    input(type='text', name='nation1', size=50)
+    |&nbsp;&nbsp;&nbsp;
+    label Nação 2:
+    input(type='text', name='nation2', size=50)
+    br
+    br
+    label Data de ínicio:
+    br    
+    label Dia:     
+    input(type='number', class='date-fields-small' name='dateStartsDay', min=1, max=31, value=`${currentDate.getDate()}`)
+    label Mês:     
+    input(type='number', class='date-fields-small' name='dateStartsMonth', min=1, max=12, value=`${currentDate.getMonth() + 1}`)
+    label Ano:     
+    input(type='number', class='date-fields-medium' name='dateStartsYear', min=2021, max=2021, value=`${currentDate.getFullYear()}`)
+    |&nbsp;&nbsp;&nbsp;
+    label Hora:     
+    input(type='number', class='date-fields-small' name='dateStartsHour', min=0, max=23)
+    label Minuto:     
+    input(type='number', class='date-fields-small' name='dateStartsMin', min=0, max=59)
+    br
+    br
+    label Data de Término:
+    br    
+    label Dia:     
+    input(type='number', class='date-fields-small' name='dateFinishDay', min=1, max=31, value=`${currentDate.getDate()}`)
+    label Mês:     
+    input(type='number', class='date-fields-small' name='dateFinishMonth', min=1, max=12, value=`${currentDate.getMonth() + 1}`)
+    label Ano:     
+    input(type='number', class='date-fields-medium' name='dateFinishYear', min=2021, max=2021, value=`${currentDate.getFullYear()}`)
+    |&nbsp;&nbsp;&nbsp;
+    label Hora:     
+    input(type='number', class='date-fields-small' name='dateFinishHour', min=0, max=23)
+    label Minuto:     
+    input(type='number', class='date-fields-small' name='dateFinishMin', min=0, max=59)
+    br
+    br
+    label Etapa:     
+    select(name='stageType', id='stageType')
+      each val in ['FIRST_STAGE', 'QUALIFIERS', 'GROUP_STAGE', 'ROUND_OF_16', 'QUARTERFINAL', 'SEMIFINAL', 'FINAL']
+        option=val
+    br
+    br
+    br
+    input(type="submit", value="Submit")
